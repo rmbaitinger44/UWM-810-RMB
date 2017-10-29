@@ -39,13 +39,13 @@ module.exports = function (app, config) {
   }));
   
   //loads schemas from models -- pull names and file path from actual file in models folder in exam
-  var models = glob.sync(config.root + '/app/models/*.js');
+  var models = glob.sync(config.root + '/models/*.js');
   models.forEach(function (model) {
     require(model);
   });
 
 //loading models has to occur before the step
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  var controllers = glob.sync(config.root + '/controllers/*.js');
   controllers.forEach(function (controller) {
     require(controller);
   });
@@ -70,6 +70,6 @@ module.exports = function (app, config) {
     res.send('500 Sever Error');
   });
   
-  logger.log("Starting application");
+
   
 };
