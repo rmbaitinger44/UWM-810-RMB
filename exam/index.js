@@ -1,11 +1,11 @@
 var express = require('express')
-var config = require('./config')    
+var config = require('./config/config')    
 
 //create the express object
 var app = express();    
 
 //configure the express object
-require('./express')(app, config);
+require('./config/express')(app, config);
 
 //start server
 require('http').createServer(app).listen(config.port, function () {

@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 var bluebird = require('bluebird');
 var glob = require('glob');
 
-
 module.exports = function (app, config) {
   console.log("Loading Mongoose functionality");
   mongoose.Promise = require('bluebird');
@@ -38,17 +37,24 @@ module.exports = function (app, config) {
       extended: true
   }));
   
-  //loads schemas from models -- pull names and file path from actual file in models folder in exam
-  var models = glob.sync(config.root + '/models/*.js');
-  models.forEach(function (model) {
-    require(model);
-  });
+  //commente4d out during troubleshooting --glob ended up not working properly
+  //loads schemas from models
+  // var models = glob.sync(config.root + './models/exammodel.js');
+  // models.forEach(function (model) {
+  //   require(model);
+  // });
 
-//loading models has to occur before the step
-  var controllers = glob.sync(config.root + '/controllers/*.js');
-  controllers.forEach(function (controller) {
-    require(controller);
-  });
+  require('../models/exammodel.js');
+
+  require('../controllers/examcontroller.js')(app, config);
+
+//commente4d out during troubleshooting --glob ended up not working properly
+  //loading models has to occur before the step
+  // var controllers = glob.sync(config.root + './controllers/examcontroller.js');
+  // controllers.forEach(function (controller) {
+  //   console.log(controller)
+  //   require(controller)(app,config);
+  // });
 
 
   app.use(express.static(config.root + '/public'));
@@ -68,8 +74,4 @@ module.exports = function (app, config) {
     res.type('text/plan');
     res.status(500);
     res.send('500 Sever Error');
-  });
-  
-
-  
-};
+  });}
