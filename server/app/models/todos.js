@@ -2,9 +2,13 @@ var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
 
 var mySchema = new Schema({
-    firstname: {type:String, required: true},
-    lastname: {type:String, required: true},
-    registerDate: {type: Date, default: Date.now}
+    userId: {type:ObjectID, required: true},
+    todo: {type:String, required: true},
+    description: {type:String},
+    dateCreated: {type: Date, default: Date.now},
+    dateDue: {type: Date, default: Date.now},
+    completed: {type: Boolean, default: false},
+    // file: {type: fileName}
 });
 
 module.exports = 

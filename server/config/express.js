@@ -5,9 +5,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bluebird = require('bluebird');
 var glob = require('glob');
+var cors = require('cors');
 
 
 module.exports = function (app, config) {
+  app.use(cors({origin: 'http://localhost:9000'}));
   logger.log("Loading Mongoose functionality");
   mongoose.Promise = require('bluebird');
   mongoose.connect(config.db, {useMongoClient: true});
@@ -39,18 +41,22 @@ module.exports = function (app, config) {
       extended: true
   }));
   
-  //loads schemas from models
-  var models = glob.sync(config.root + '/app/models/*.js');
-  models.forEach(function (model) {
-    require(model);
-  });
+//   //loads schemas from models
+//   var models = glob.sync(config.root + '/app/models/*.js');
+//   models.forEach(function (model) {
+//     require(model);
+//   });
 
-//loading models has to occur before the step
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach(function (controller) {
-    require(controller);
-  });
+// //loading models has to occur before the step
+//   var controllers = glob.sync(config.root + '/app/controllers/*.js');
+//   controllers.forEach(function (controller) {
+//     require(controller);
+//   });
 
+
+require('../app/models/users.js');
+
+require('../app/controllers/users.js')(app, config);
 
   app.use(express.static(config.root + '/public'));
   
@@ -68,7 +74,7 @@ module.exports = function (app, config) {
     }
     res.type('text/plan');
     res.status(500);
-    res.send('500 Sever Error');
+    res.send('500 Server Error');
   });
   
   logger.log("Starting application");

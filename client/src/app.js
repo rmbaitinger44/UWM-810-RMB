@@ -1,4 +1,5 @@
 export class App {
+
   configureRouter(config, router) {
     this.router = router;
     config.map([
@@ -6,13 +7,13 @@ export class App {
       { 
 	      route: ['', 'home'],
         //where is the file located
-        moduleId: './modules/home',
+        moduleId: './modules/components/home',
         //Aurelia creates a menu for us
         name: 'Home' 
       },
       {
 	      route: 'list',
-	      moduleId: './modules/list',
+	      moduleId: './modules/components/list',
 	      name: 'List' 
      }
     ]);
