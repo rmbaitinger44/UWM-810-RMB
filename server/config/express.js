@@ -77,6 +77,18 @@ require('../app/controllers/users.js')(app, config);
     res.send('500 Server Error');
   });
   
+  app.use(function (err, req, res, next) {
+    console.log(err);
+      if (process.env.NODE_ENV !== 'test') logger.log(err.stack,'error');
+      res.type('text/plan');
+      if(err.status){
+      res.status(err.status).send(err.message);
+    } else {
+      res.status(500).send('500 Sever Error');
+    }
+  });
+
+
   logger.log("Starting application");
   
 };

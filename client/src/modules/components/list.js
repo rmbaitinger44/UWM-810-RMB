@@ -10,6 +10,9 @@ export class List {
   }
 
   logout(){
-	  this.router.navigate('home');
-  }
-}
+    sessionStorage.removeItem('user');
+    this.auth.logout();
+}}
+
+
+

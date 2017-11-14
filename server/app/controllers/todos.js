@@ -9,7 +9,7 @@ var express = require('express'),
 module.exports = function (app, config) {
     app.use('/api', router);
     
-    router.get('/users', function(req,res,next){
+    router.get('/users', requireAuth, function(req,res,next){
         logger.log('Get all users');
         var query = User.find()
             .sort(req.query.order)
@@ -26,7 +26,7 @@ module.exports = function (app, config) {
             })
     });
 
-    router.get('/users/:userID', function(req,res,next){
+    router.get('/users/:userID', requireAuth, function(req,res,next){
         logger.log('Get user' + req.params.userid, 'verbose');
 
         res.status(200).json({message: 'Get Users' + req.params.userid})
