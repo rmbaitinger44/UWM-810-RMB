@@ -1,0 +1,9 @@
+{"level":"info","message":"Loading Mongoose functionality","timestamp":"2017-11-20T19:40:57.789Z"}
+{"level":"info","message":"Starting application","timestamp":"2017-11-20T19:40:59.650Z"}
+{"level":"info","message":"HTTP Server listening on port: 5000, in development mode","timestamp":"2017-11-20T19:40:59.714Z"}
+{"level":"info","message":"Mongoose connected to the database","timestamp":"2017-11-20T19:40:59.840Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-11-20T19:52:23.561Z"}
+{"level":"verbose","message":"Create user","timestamp":"2017-11-20T19:52:23.601Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-11-20T19:59:58.644Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-11-20T20:00:09.765Z"}
+{"level":"verbose","message":"Create user","timestamp":"2017-11-20T20:00:09.768Z"}

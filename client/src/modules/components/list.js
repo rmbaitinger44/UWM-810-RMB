@@ -16,8 +16,7 @@ export class List {
           this.message = 'List';
           this.auth = auth;
           
-          this.user = JSON.parse(sessionStorage.getItem('user'));
-          this.showList = true;
+
   }
   createTodo(){	
 		this.todoObj = {
