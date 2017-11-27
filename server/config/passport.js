@@ -9,8 +9,10 @@ localStrategy = require('passport-local');
 var localOptions = { usernameField: 'email' };
 
 var localLogin = new localStrategy(localOptions, function(email, password, next){
+  console.log(email);
 	User.findOne({email: email}).exec()
-	.then(function(user){ 
+	.then(function(user){
+      console.log(user) ;
 	     if(!user){
 	        return next({status: "404", message: "Email not found."});
 	      } else {

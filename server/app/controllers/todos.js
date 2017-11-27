@@ -3,14 +3,16 @@ var express = require('express'),
     router = express.Router(),
     logger = require('../../config/logger'),
     mongoose = require('mongoose'),
-    User = mongoose.model('MyModel')
+    Todo = mongoose.model('MyModel'),
+    passport = require('passport');
 
+    var requireAuth = passport.authenticate('jwt', { session: false });
 
 module.exports = function (app, config) {
     app.use('/api', router);
     
-    router.get('/users', requireAuth, function(req,res,next){
-        logger.log('Get all users');
+    router.get('/todos', requireAuth, function(req,res,next){
+        logger.log('Get all todos');
         var query = User.find()
             .sort(req.query.order)
             .exec()
@@ -26,14 +28,28 @@ module.exports = function (app, config) {
             })
     });
 
-    router.get('/users/:userID', requireAuth, function(req,res,next){
-        logger.log('Get user' + req.params.userid, 'verbose');
+    router.get('/todos/:userId', requireAuth, function(req,res,next){
+        logger.log('Get todo' + req.params.userid, 'verbose');
 
         res.status(200).json({message: 'Get Users' + req.params.userid})
     });
 
-    router.post('/users', function(req,res,next){
-        logger.log('Create user', 'verbose');
+    router.get('/todos/user/:userId', function(req,res,next){
+        logger.log('Get all todos for ' + req.params.userId, 'verbose')
+
+        Todo.find({userId: req.params.userId})
+            .then(todos => {
+                if(todos){
+                    res.status(200).json(todos);
+                } else {
+                    return next(error)
+                }
+    
+            });
+    });
+
+    router.post('/todos', function(req,res,next){
+        logger.log('Create todo', 'verbose');
         var user = new User(req.body);
         user.save()
         .then(result =>{ 
@@ -42,4 +58,5 @@ module.exports = function (app, config) {
         .catch(err => {
             return next(err);
         });        
-})}
+})
+}

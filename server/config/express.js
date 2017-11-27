@@ -41,22 +41,22 @@ module.exports = function (app, config) {
       extended: true
   }));
   
-//   //loads schemas from models
-//   var models = glob.sync(config.root + '/app/models/*.js');
-//   models.forEach(function (model) {
-//     require(model);
-//   });
+  //loads schemas from models
+  var models = glob.sync(config.root + '/app/models/*.js');
+  models.forEach(function (model) {
+    require(model);
+  });
 
-// //loading models has to occur before the step
-//   var controllers = glob.sync(config.root + '/app/controllers/*.js');
-//   controllers.forEach(function (controller) {
-//     require(controller);
-//   });
+//loading models has to occur before the step
+  var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  controllers.forEach(function (controller) {
+    require(controller)(app, config);
+  });
 
 
-require('../app/models/users.js');
+// require('../app/models/users.js');
 
-require('../app/controllers/users.js')(app, config);
+// require('../app/controllers/users.js')(app, config);
 
   app.use(express.static(config.root + '/public'));
   

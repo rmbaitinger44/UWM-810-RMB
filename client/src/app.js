@@ -10,13 +10,13 @@ export class App {
       { 
 	      route: ['', 'home'],
         //where is the file located
-        moduleId: './modules/components/home',
+        moduleId: './modules/home',
         //Aurelia creates a menu for us
         name: 'Home' 
       },
       {
 	      route: 'list',
-	      moduleId: './modules/components/list',
+	      moduleId: './modules/list',
         name: 'List' ,
         auth: true 
      }

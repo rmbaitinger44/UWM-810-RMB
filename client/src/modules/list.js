@@ -6,18 +6,27 @@ import {Router} from 'aurelia-router';
 
 
 
-inject(Router)
+@inject(Router,ToDos,AuthService)
 export class List {
 
   
   
-  constructor(router) {
-	        this.router = router;
+  constructor(router,todos,auth) {
+	    	this.router = router;
           this.message = 'List';
           this.auth = auth;
-          
+		  this.todos = todos;
+		  this.user = JSON.parse(sessionStorage.getItem('user'));
+			this.showList = true
+			this.priorities = ['Low', 'Medium', 'High', 'Critical'];
 
   }
+
+  async activate(){
+	await this.todos.getUserTodos(this.user._id);
+}
+
+
   createTodo(){	
 		this.todoObj = {
 			todo: "",
@@ -28,6 +37,8 @@ export class List {
 		}
 		this.showList = false;		
   }
+
+
   async saveTodo(){
 		if(this.todoObj){		
 			let response = await this.todos.save(this.todoObj);

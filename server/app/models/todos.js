@@ -2,7 +2,7 @@ var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
 
 var mySchema = new Schema({
-    userId: {type:ObjectID, required: true},
+    userId: {type:Schema.Types.ObjectId, required: true},
     todo: {type:String, required: true},
     description: {type:String},
     dateCreated: {type: Date, default: Date.now},
