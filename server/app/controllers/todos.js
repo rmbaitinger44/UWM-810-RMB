@@ -25,7 +25,7 @@ var express = require('express'),
         },
         filename: function (req, file, cb) {
             let fileName = file.originalname.split('.');   
-            cb(null, fileName[0] + new Date().getTime() + "." + 				fileName[fileName.length - 1]);
+            cb(null, fileName[0] + new Date().getTime() + "." + fileName[fileName.length - 1]);
         }
       });
       var upload = multer({ storage: storage });

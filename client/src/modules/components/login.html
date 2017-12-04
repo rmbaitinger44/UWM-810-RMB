@@ -1,11 +1,31 @@
 <template>
-        <div id="errorMsg" innerhtml.bind="loginError"></div>
-        <label for="email">Email</label>
-        <input value.bind="email" type="email" autofocus class="form-control" id="email" placeholder="Email"></input>
-        <label for="password">Password</label>
-        <input value.bind="password" type="password" class="form-control" id="password" placeholder="Password"></input>
-        <button click.trigger="login()">Login</button>  
-        <span class="registerLink" click.trigger="showRegister()">Register</span>
-</template>
-    
-    
+
+        <div id="errorMsg" innerhtml.bind="loginError"></div>
+        <div class="form-group 1">
+            <label for="email">Email</label>
+            <input value.bind="email" type="email" autofocus class="form-control" id="email" placeholder="Email"></input>
+            <label for="password">Password</label>
+            <input value.bind="password" type="password" class="form-control" id="password" placeholder="Password"></input>
+        </div>
+        <div class="form-group 2">  
+            <button click.trigger="login()">Login</button>  
+            <button click.trigger="showRegister()">Register</button>
+        </div>
+
+<template>
+
+<!-- <template>
+<form>
+    <div id="errorMsg" innerhtml.bind="loginError"></div>
+    <div class="form-group 1">
+        <label for="email">Email</label>
+        <input value.bind="email" type="email" autofocus class="form-control" id="email" placeholder="Email"></input>
+    </div>
+    <div class="form-group 2">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button click.trigger="showRegister()">Register</span>
+</form>
+</template>     -->

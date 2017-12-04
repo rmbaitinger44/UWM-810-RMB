@@ -8,7 +8,7 @@ var mySchema = new Schema({
     dateCreated: {type: Date, default: Date.now},
     dateDue: {type: Date, default: Date.now},
     completed: {type: Boolean, default: false},
-    // file: {type: fileName}
+    file: {type: String}
 });
 
 module.exports = 
