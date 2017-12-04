@@ -23,6 +23,10 @@ export class List {
 	}
 
 
+	back() {
+		this.showList = true;
+	}
+
   	createTodo(){	
 		this.todoObj = {
 			todo: "",

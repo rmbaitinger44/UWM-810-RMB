@@ -4,8 +4,10 @@ var express = require('express'),
     logger = require('../../config/logger'),
     mongoose = require('mongoose'),
     Todo = mongoose.model('MyModel'),
+    config = require('../../config/config'),
     multer = require('multer'),
     mkdirp = require('mkdirp'),
+
     
     passport = require('passport');
     
@@ -104,6 +106,29 @@ module.exports = function (app, config) {
         })
         .catch(err => {
             return next(err);
-        });        
-})
+        })}); 
+        
+        router.delete('/todos/:todoId', function(req, res, next){
+             logger.log('Delete todo ' + req.params.todoId, 'verbose');
+
+            Todo.remove({ _id: req.params.todoId})
+            .then(todo => {
+                res.status(200).json({msg: "Todo Deleted"});
+
+            })
+            .catch(error => {
+                return next(error);
+            })
+        });
+        
+router.put('/todos/:todoId', function(req, res, next){
+        logger.log('Update todo ' + req.params.todoId, 'verbose');
+    Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new:true, multi:false})
+            .then(user => {
+                res.status(200).json(user);
+            })
+            .catch(error => {
+                return next(error);
+            });
+    }); 
 }
