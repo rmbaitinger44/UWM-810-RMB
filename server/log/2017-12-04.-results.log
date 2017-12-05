@@ -308,3 +308,23 @@
 {"level":"verbose","message":"Upload file for todo 5a25dc7800e49527480924ec and 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:38:32.438Z"}
 {"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:39:39.108Z"}
 {"level":"verbose","message":"Get all todos for 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:39:39.109Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:49:15.755Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:49:15.963Z"}
+{"level":"verbose","message":"Get all todos for 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:49:15.965Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:49:29.814Z"}
+{"level":"verbose","message":"Create todo","timestamp":"2017-12-04T23:49:29.816Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:49:29.841Z"}
+{"level":"verbose","message":"Upload file for todo 5a25df0900e49527480924ed and 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:49:29.869Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:49:33.175Z"}
+{"level":"verbose","message":"Get all todos for 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:49:33.176Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:55:12.210Z"}
+{"level":"verbose","message":"Get all todos for 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:55:12.212Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:55:56.992Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:55:57.166Z"}
+{"level":"verbose","message":"Get all todos for 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:55:57.168Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:57:20.507Z"}
+{"level":"verbose","message":"Create todo","timestamp":"2017-12-04T23:57:20.509Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:57:20.535Z"}
+{"level":"verbose","message":"Upload file for todo 5a25e0e000e49527480924ee and 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:57:20.559Z"}
+{"level":"info","message":"Request from ::1","timestamp":"2017-12-04T23:57:22.903Z"}
+{"level":"verbose","message":"Get all todos for 5a25d70402140f1640667d7b","timestamp":"2017-12-04T23:57:22.903Z"}
