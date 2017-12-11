@@ -37,7 +37,7 @@
                                 <i show.bind="!todo.completed" click.trigger="completeTodo(todo)"    class="fa fa-square-o" aria-hidden="true"></i>
                                 <i show.bind="todo.completed " click.trigger="completeTodo(todo)"   class="fa fa-check " aria-hidden="true "></i>  
                             </td>   
-                            <td><a href="http://localhost:5000/uploads/${user._id}/${todo.file.filename}" 	target="_blank">${todo.file.originalName}</a></td>                            
+                            <td><a href="uploads/${user._id}/${todo.file.filename}" 	target="_blank">${todo.file.originalName}</a></td>                            
                         </tr>
                     </tbody>         
                 </table>
