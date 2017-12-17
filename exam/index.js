@@ -4,6 +4,7 @@ var config = require('./config/config')
 //create the express object
 var app = express();    
 
+
 //configure the express object
 require('./config/express')(app, config);
 
